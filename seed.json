@@ -1,0 +1,139 @@
+{
+ "projects": [
+  {
+   "title": "Sales Dashboard",
+   "tools": [
+    "Power BI",
+    "KPI Dashboard",
+    "Revenue Analysis"
+   ],
+   "overview": "An interactive dashboard tracking revenue, growth and top products.",
+   "problem": "Leadership could not see which regions and products drove sales.",
+   "results": "Cut monthly reporting time and exposed the top 3 revenue drivers.",
+   "color": "#d9a300",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  },
+  {
+   "title": "Customer Churn Prediction",
+   "tools": [
+    "Python",
+    "Machine Learning"
+   ],
+   "overview": "A model that predicts which customers are likely to leave.",
+   "problem": "The business lost customers without warning.",
+   "results": "Add your model accuracy and the retention actions it enabled.",
+   "color": "#7b3fe4",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  },
+  {
+   "title": "Netflix Data Analysis",
+   "tools": [
+    "Python",
+    "Pandas",
+    "Matplotlib"
+   ],
+   "overview": "Exploratory analysis of Netflix titles, genres and release trends.",
+   "problem": "What content mix does the catalog favor, and how has it changed?",
+   "results": "Add your key findings and charts.",
+   "color": "#e0402a",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  },
+  {
+   "title": "SQL Business Reports",
+   "tools": [
+    "SQL",
+    "Joins",
+    "Window Functions"
+   ],
+   "overview": "A set of reusable queries for sales, customer and ranking reports.",
+   "problem": "Managers relied on manual exports for recurring reports.",
+   "results": "Replaced manual exports with repeatable queries.",
+   "color": "#e48e00",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  },
+  {
+   "title": "HR Analytics Dashboard",
+   "tools": [
+    "Power BI",
+    "Excel"
+   ],
+   "overview": "Workforce dashboard covering headcount, attrition and hiring.",
+   "problem": "HR needed one view of attrition drivers.",
+   "results": "Add your attrition insights.",
+   "color": "#1d6f42",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  },
+  {
+   "title": "House Price Prediction",
+   "tools": [
+    "Machine Learning"
+   ],
+   "overview": "A regression model that estimates house prices from property features.",
+   "problem": "Buyers and sellers lacked a data-backed price estimate.",
+   "results": "Add your RMSE / R\u00b2 score.",
+   "color": "#0a6cb5",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  },
+  {
+   "title": "COVID Data Analysis",
+   "tools": [
+    "Python"
+   ],
+   "overview": "Analysis of case, recovery and vaccination trends across countries.",
+   "problem": "How did waves differ across regions and time?",
+   "results": "Add your key trends.",
+   "color": "#264de4",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  },
+  {
+   "title": "Python Automation",
+   "tools": [
+    "CSV Automation",
+    "Excel Reports"
+   ],
+   "overview": "Scripts that clean CSV files and generate Excel reports automatically.",
+   "problem": "Repetitive weekly reporting took hours by hand.",
+   "results": "Add hours saved per week.",
+   "color": "#24292f",
+   "github": "https://github.com/man3rohit-design",
+   "demo": "",
+   "image": ""
+  }
+ ],
+ "certs": [
+  {
+   "title": "AWS AI Certification",
+   "issuer": "Amazon Web Services",
+   "url": ""
+  },
+  {
+   "title": "Data Analytics",
+   "issuer": "Coursera",
+   "url": ""
+  },
+  {
+   "title": "Google Data Analytics",
+   "issuer": "Google",
+   "url": ""
+  },
+  {
+   "title": "Power BI Data Analyst",
+   "issuer": "Microsoft",
+   "url": ""
+  }
+ ]
+}

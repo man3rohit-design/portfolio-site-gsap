@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio Admin</title><meta name="robots" content="noindex,nofollow">
+<style>*{box-sizing:border-box}body{font:16px/1.5 system-ui,sans-serif;background:#f1ede2;color:#0d0d0d;max-width:920px;margin:0 auto;padding:20px}
+h1{font-weight:900;letter-spacing:-.03em}nav{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+button,.b{font:600 14px system-ui;border:2px solid #0d0d0d;background:#faf7ef;border-radius:99px;padding:7px 16px;cursor:pointer}
+button.on,button.p{background:#0d0d0d;color:#f1ede2}button.d{border-color:#c0301c;color:#c0301c}
+.card{background:#faf7ef;border:2px solid #0d0d0d;border-radius:14px;padding:16px;margin:12px 0}.card.new{box-shadow:5px 5px 0 #e0402a}
+label{display:block;font-size:13px;font-weight:600;margin:8px 0 2px}input,textarea{width:100%;font:inherit;padding:8px 10px;border:2px solid #0d0d0d;border-radius:8px;background:#fff}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}small{color:#5b574d}#msg{color:#c0301c;font-weight:600;min-height:24px}.un{border-left:6px solid #e0402a}</style></head><body>
+<h1>Portfolio Admin</h1><div id="msg"></div><div id="app"></div>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const note=t=>{$('#msg').textContent=t;if(t)setTimeout(()=>$('#msg').textContent='',4000)};
+async function api(u,o={}){const r=await fetch(u,{credentials:'same-origin',...o}),j=await r.json().catch(()=>({}));if(r.status===401&&u!=='/api/login'){login();throw new Error('Please log in')}if(!r.ok)throw new Error(j.error||'Request failed');return j}
+const js=(m,b)=>({method:m,headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});
+const F={projects:[['title','Title'],['tools','Tools (comma separated)'],['overview','Overview','t'],['problem','Problem statement','t'],['results','Results','t'],['github','GitHub link'],['demo','Live demo link'],['color','Banner color (#rrggbb)'],['image','Screenshot URL (or upload below)']],certs:[['title','Title'],['issuer','Issuer'],['url','Certificate link']]};
+function login(){$('#app').innerHTML='<div class="card"><label>Admin password</label><input id="pw" type="password" autocomplete="current-password"><div class="row"><button class="p" id="go">Log in</button></div></div>';const go=async()=>{try{await api('/api/login',js('POST',{password:$('#pw').value}));tab('messages')}catch(e){note(e.message)}};$('#go').onclick=go;$('#pw').onkeydown=e=>e.key==='Enter'&&go()}
+function shell(t,body){$('#app').innerHTML=`<nav>${['messages','projects','certs','resume'].map(x=>`<button class="${x===t?'on':''}" data-t="${x}">${x[0].toUpperCase()+x.slice(1)}</button>`).join('')}<a class="b" href="/" target="_blank">View site</a><button id="lo">Log out</button></nav>${body}`;document.querySelectorAll('nav [data-t]').forEach(b=>b.onclick=()=>tab(b.dataset.t));$('#lo').onclick=async()=>{await api('/api/logout',{method:'POST'});login()}}
+async function tab(t){try{if(t==='messages')return await msgs();if(t==='resume')return resume();await coll(t)}catch(e){note(e.message)}}
+async function msgs(){const l=await api('/api/admin/messages');shell('messages',l.length?l.map(m=>`<div class="card ${m.read?'':'un'}"><b>${esc(m.name)}</b> &lt;<a href="mailto:${esc(m.email)}">${esc(m.email)}</a>&gt; <small>${new Date(m.date).toLocaleString()}</small><p style="white-space:pre-wrap">${esc(m.message)}</p><div class="row"><button data-r="${m.id}" data-v="${!m.read}">Mark ${m.read?'unread':'read'}</button><button class="d" data-x="${m.id}">Delete</button></div></div>`).join(''):'<p>No messages yet.</p>');
+ document.querySelectorAll('[data-r]').forEach(b=>b.onclick=async()=>{await api('/api/admin/messages/'+b.dataset.r,js('PATCH',{read:b.dataset.v==='true'}));msgs()});
+ document.querySelectorAll('[data-x]').forEach(b=>b.onclick=async()=>{if(confirm('Delete this message?')){await api('/api/admin/messages/'+b.dataset.x,{method:'DELETE'});msgs()}})}
+const form=(c,it={})=>`<div class="card ${it.id?'':'new'}" data-id="${it.id||''}">${F[c].map(([k,l,t])=>`<label>${l}</label>${t?`<textarea rows="3" data-k="${k}">${esc(it[k])}</textarea>`:`<input data-k="${k}" value="${esc(Array.isArray(it[k])?it[k].join(', '):it[k])}">`}`).join('')}${c==='projects'?'<label>Upload screenshot</label><input type="file" accept="image/*" data-up>':''}<div class="row"><button class="p" data-save>${it.id?'Save':'Add'}</button>${it.id?'<button class="d" data-del>Delete</button>':''}</div></div>`;
+async function coll(c){const l=await api('/api/'+c);shell(c,form(c)+l.map(i=>form(c,i)).join(''));
+ document.querySelectorAll('.card[data-id]').forEach(card=>{const id=card.dataset.id,get=()=>Object.fromEntries([...card.querySelectorAll('[data-k]')].map(e=>[e.dataset.k,e.value]));
+  card.querySelector('[data-save]').onclick=async()=>{try{await api('/api/admin/'+c+(id?'/'+id:''),js(id?'PUT':'POST',get()));note('Saved');coll(c)}catch(e){note(e.message)}};
+  const d=card.querySelector('[data-del]');if(d)d.onclick=async()=>{if(confirm('Delete this item?')){await api('/api/admin/'+c+'/'+id,{method:'DELETE'});coll(c)}};
+  const u=card.querySelector('[data-up]');if(u)u.onchange=async()=>{if(!u.files[0])return;const fd=new FormData();fd.append('file',u.files[0]);try{const r=await api('/api/admin/upload',{method:'POST',body:fd});card.querySelector('[data-k=image]').value=r.url;note('Uploaded. Now press Save')}catch(e){note(e.message)}}})}
+function resume(){shell('resume','<div class="card"><p>Current file: <a href="/resume.pdf" target="_blank">/resume.pdf</a></p><label>Upload new resume (PDF, max 8 MB)</label><input type="file" id="rf" accept="application/pdf"><div class="row"><button class="p" id="ru">Upload</button></div></div>');
+ $('#ru').onclick=async()=>{const fd=new FormData();if(!$('#rf').files[0])return note('Choose a PDF first');fd.append('file',$('#rf').files[0]);try{await api('/api/admin/resume',{method:'POST',body:fd});note('Resume updated')}catch(e){note(e.message)}}}
+api('/api/me').then(()=>tab('messages')).catch(login);
+</script></body></html>
