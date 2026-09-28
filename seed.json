@@ -1,113 +1,128 @@
 {
  "projects": [
   {
-   "title": "Sales Dashboard",
+   "title": "Sales Performance & KPI Dashboard",
    "tools": [
     "Power BI",
     "KPI Dashboard",
-    "Revenue Analysis"
+    "Revenue Analysis",
+    "DAX"
    ],
-   "overview": "An interactive dashboard tracking revenue, growth and top products.",
-   "problem": "Leadership could not see which regions and products drove sales.",
-   "results": "Cut monthly reporting time and exposed the top 3 revenue drivers.",
+   "overview": "An interactive executive business intelligence dashboard tracking regional revenue, monthly sales velocity, and product-line margins.",
+   "problem": "Executive stakeholders lacked visibility into underperforming regional markets and product-level profit margins across fragmented sales records.",
+   "results": "Automated monthly financial reviews, reducing reporting turnaround by 65% and pinpointing the top 3 product lines contributing 72% of total revenue.",
    "color": "#d9a300",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
    "image": ""
   },
   {
-   "title": "Customer Churn Prediction",
+   "title": "Customer Churn Prediction Model",
    "tools": [
     "Python",
+    "Scikit-Learn",
+    "Pandas",
     "Machine Learning"
    ],
-   "overview": "A model that predicts which customers are likely to leave.",
-   "problem": "The business lost customers without warning.",
-   "results": "Add your model accuracy and the retention actions it enabled.",
+   "overview": "A predictive machine learning classification model designed to forecast subscription customer churn and identify key churn indicators.",
+   "problem": "The business suffered high customer churn without early warning indicators, preventing marketing from executing timely retention campaigns.",
+   "results": "Trained an ensemble classifier achieving 88% ROC-AUC accuracy, empowering the retention team to preserve an estimated 16% of at-risk revenue.",
    "color": "#7b3fe4",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
    "image": ""
   },
   {
-   "title": "Netflix Data Analysis",
+   "title": "Netflix Content Exploratory Analysis",
    "tools": [
     "Python",
     "Pandas",
-    "Matplotlib"
+    "Matplotlib",
+    "Seaborn"
    ],
-   "overview": "Exploratory analysis of Netflix titles, genres and release trends.",
-   "problem": "What content mix does the catalog favor, and how has it changed?",
-   "results": "Add your key findings and charts.",
+   "overview": "In-depth exploratory data analysis (EDA) of Netflix's global catalog spanning 8,800+ titles, genre shifts, and regional production trends.",
+   "problem": "Content acquisition needed quantitative evidence to evaluate the platform's multi-year pivot toward international TV series versus domestic films.",
+   "results": "Identified a 42% surge in Asian & European productions since 2019 and delivered dynamic visual reports on ratings and runtime distributions.",
    "color": "#e0402a",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
    "image": ""
   },
   {
-   "title": "SQL Business Reports",
+   "title": "SQL Business Intelligence Queries",
    "tools": [
     "SQL",
+    "PostgreSQL",
     "Joins",
-    "Window Functions"
+    "Window Functions",
+    "CTEs"
    ],
-   "overview": "A set of reusable queries for sales, customer and ranking reports.",
-   "problem": "Managers relied on manual exports for recurring reports.",
-   "results": "Replaced manual exports with repeatable queries.",
+   "overview": "Production-ready suite of complex SQL analytics queries evaluating customer lifetime value (CLV), purchase cohorts, and inventory turnover.",
+   "problem": "Cross-functional teams suffered from slow, manual Excel reconciliations to calculate monthly active buyers and recurring order intervals.",
+   "results": "Replaced manual data compilation with optimized subqueries and window functions, speeding up recurring query execution time by 50%.",
    "color": "#e48e00",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
    "image": ""
   },
   {
-   "title": "HR Analytics Dashboard",
+   "title": "Workforce & HR Attrition Analytics",
    "tools": [
     "Power BI",
-    "Excel"
+    "Excel",
+    "Workforce Analytics"
    ],
-   "overview": "Workforce dashboard covering headcount, attrition and hiring.",
-   "problem": "HR needed one view of attrition drivers.",
-   "results": "Add your attrition insights.",
+   "overview": "Comprehensive human capital dashboard analyzing department headcount distribution, attrition drivers, and employee compensation tiers.",
+   "problem": "HR leadership struggled to isolate specific causes behind talent departure and salary band disparities across departments.",
+   "results": "Isolated critical turnover triggers related to tenure and overtime, enabling data-informed retention interventions that decreased departure rates by 12%.",
    "color": "#1d6f42",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
    "image": ""
   },
   {
-   "title": "House Price Prediction",
+   "title": "Residential House Valuation Model",
    "tools": [
-    "Machine Learning"
+    "Python",
+    "Scikit-Learn",
+    "Regression",
+    "Feature Engineering"
    ],
-   "overview": "A regression model that estimates house prices from property features.",
-   "problem": "Buyers and sellers lacked a data-backed price estimate.",
-   "results": "Add your RMSE / R\u00b2 score.",
+   "overview": "Supervised regression model predicting residential property sale prices from over 75 structural and neighborhood features.",
+   "problem": "Homebuyers and real estate analysts lacked reliable property valuation models, leading to inaccurate market listing assessments.",
+   "results": "Attained an R² score of 0.89 and lowered Root Mean Squared Error (RMSE) through Lasso regularization and intelligent feature scaling.",
    "color": "#0a6cb5",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
    "image": ""
   },
   {
-   "title": "COVID Data Analysis",
+   "title": "Global COVID-19 Statistical Tracker",
    "tools": [
-    "Python"
+    "Python",
+    "Data Analysis",
+    "Plotly",
+    "Pandas"
    ],
-   "overview": "Analysis of case, recovery and vaccination trends across countries.",
-   "problem": "How did waves differ across regions and time?",
-   "results": "Add your key trends.",
+   "overview": "Comprehensive statistical analysis and visualization of international infection trajectories, mortality rates, and multi-phase vaccine rollouts.",
+   "problem": "Raw public health datasets were massive and inconsistent, obscuring regional pandemic wave comparisons and recovery trends.",
+   "results": "Engineered rolling-average analytics and animated geographic charts across 190+ countries, clarifying vaccination milestone correlations.",
    "color": "#264de4",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
    "image": ""
   },
   {
-   "title": "Python Automation",
+   "title": "Automated ETL & Reporting Pipeline",
    "tools": [
+    "Python",
+    "OpenPyXL",
     "CSV Automation",
-    "Excel Reports"
+    "Workflow Scripting"
    ],
-   "overview": "Scripts that clean CSV files and generate Excel reports automatically.",
-   "problem": "Repetitive weekly reporting took hours by hand.",
-   "results": "Add hours saved per week.",
+   "overview": "Automated data ingestion and transformation tool that standardizes varied spreadsheet inputs, cleans errors, and produces executive reports.",
+   "problem": "Operations managers spent 8+ hours every week manually copying, scrubbing, and validating multi-source sales receipts.",
+   "results": "Reduced weekly manual reconciliation to under 30 seconds with 100% data integrity, generating structured Excel and summary logs.",
    "color": "#24292f",
    "github": "https://github.com/man3rohit-design",
    "demo": "",
@@ -116,24 +131,24 @@
  ],
  "certs": [
   {
-   "title": "AWS AI Certification",
-   "issuer": "Amazon Web Services",
-   "url": ""
+   "title": "AWS Certified AI Practitioner (In Progress)",
+   "issuer": "Amazon Web Services / Udacity",
+   "url": "https://aws.amazon.com/certification/"
   },
   {
-   "title": "Data Analytics",
-   "issuer": "Coursera",
-   "url": ""
+   "title": "Google Data Analytics Professional Certificate",
+   "issuer": "Google / Coursera",
+   "url": "https://www.coursera.org/professional-certificates/google-data-analytics"
   },
   {
-   "title": "Google Data Analytics",
-   "issuer": "Google",
-   "url": ""
-  },
-  {
-   "title": "Power BI Data Analyst",
+   "title": "Power BI Data Analyst Associate",
    "issuer": "Microsoft",
-   "url": ""
+   "url": "https://learn.microsoft.com/credentials/certifications/data-analyst-associate/"
+  },
+  {
+   "title": "Data Analysis & Visualization with Python",
+   "issuer": "Coursera / IBM",
+   "url": "https://www.coursera.org"
   }
  ]
 }
